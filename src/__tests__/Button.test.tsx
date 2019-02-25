@@ -1,6 +1,5 @@
 import React from "react";
-import { expect as chaiExpect } from "chai";
-import { shallow, configure } from "enzyme";
+import { shallow, configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import sinon from "sinon";
 import Button from "../Components/Button";
@@ -13,16 +12,18 @@ describe("<Button />", () => {
     expect(button.length).toEqual(1);
   });
 
-  it("renders with className props", () => {
+  it("renders with props", () => {
     const button = shallow(<Button value="Test" className={"asdf"} />);
     expect(button.find(".asdf").length).toEqual(1);
+    expect(button.props().className).toEqual("asdf");
+    expect(button.props().value).toEqual("Test");
   });
 
   it("renders to Button click Event", () => {
     const onClick = sinon.spy();
     const button = shallow(<Button value="Test" onClick={onClick} />);
     button.simulate("click");
-    chaiExpect(onClick).to.have.property("callCount", 1);
+    expect(onClick).toHaveProperty("callCount", 1);
   });
 
   it("renders the output", () => {
