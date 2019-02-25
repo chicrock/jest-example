@@ -1,0 +1,28 @@
+{
+  "name": "jest-example",
+  "version": "1.0.0",
+  "description": "Jest Example with react(+parcel)",
+  "main": "index.js",
+  "repository": "git@github.com:chicrock/jest-example.git",
+  "author": "chicrock",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.4",
+    "@types/react-dom": "^16.8.2",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-typescript": "^7.0.0-alpha.19",
+    "parcel-bundler": "^1.11.0",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3333"
+  },
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html/"
+  }
+}
