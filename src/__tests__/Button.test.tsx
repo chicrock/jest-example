@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, configure, mount } from "enzyme";
+import { shallow, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import sinon from "sinon";
 import Button from "../Components/Button";
@@ -31,6 +31,13 @@ describe("<Button />", () => {
     const expectedOutput = '<input type="submit" value="Test"';
 
     const realOutput = button.html();
-    expect(realOutput.indexOf(expectedOutput) > -1).toEqual(true);
+    expect(realOutput).toContain(expectedOutput);
+    // expect(realOutput.indexOf(expectedOutput) > -1).toEqual(true);
+  });
+
+  it("renders the value", () => {
+    const button = shallow(<Button value="Test" />);
+
+    expect(button.html()).toContain("Test");
   });
 });
