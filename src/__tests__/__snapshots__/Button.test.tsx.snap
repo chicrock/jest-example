@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> test with enzyme serializer 1`] = `
+<styled.input
+  disabled={false}
+  type="submit"
+  value="Test"
+/>
+`;
+
+exports[`<Button /> test with enzyme serializer 2`] = `
+<styled.input
+  disabled={false}
+  type="submit"
+  value="Test12"
+/>
+`;
+
+exports[`<Button /> test with enzyme serializer 3`] = `
+<styled.input
+  disabled={false}
+  type="submit"
+  value="Values"
+/>
+`;
+
+exports[`<Button /> test with snapshot 1`] = `
+<input
+  className="sc-bdVaJa didhXZ"
+  disabled={false}
+  type="submit"
+  value="Test"
+/>
+`;

@@ -1,6 +1,8 @@
 import React from "react";
-import { shallow, configure } from "enzyme";
+import renderer from "react-test-renderer";
+import { shallow, configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+import toJson from "enzyme-to-json";
 import sinon from "sinon";
 import Button from "../Components/Button";
 
@@ -39,5 +41,26 @@ describe("<Button />", () => {
     const button = shallow(<Button value="Test" />);
 
     expect(button.html()).toContain("Test");
+  });
+
+  it("test with snapshot", () => {
+    const props = {
+      value: "Test",
+    };
+    const button = renderer.create(<Button {...props} />);
+
+    expect(button).toMatchSnapshot();
+  });
+
+  it("test with enzyme serializer", () => {
+    ["Test", "Test12", "Values"].forEach(value => {
+      const props = {
+        value,
+      };
+
+      const button = shallow(<Button {...props} />);
+
+      expect(toJson(button)).toMatchSnapshot();
+    });
   });
 });
